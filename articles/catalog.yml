@@ -1,0 +1,13 @@
+PREDEF:
+  - preface.re
+
+CHAPS:
+  - setup.re
+  - article.re
+  - article2.re
+  - config.re
+  - makecover.re
+APPENDIX:
+
+POSTDEF:
+  - contributors.re
