@@ -2,12 +2,12 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - setup.re
-  - article.re
+  - article1.re
   - article2.re
-  - config.re
-  - makecover.re
 APPENDIX:
-
+  - tokcs.re
 POSTDEF:
   - contributors.re
+# CHAPS:
+#   - article2.re
+

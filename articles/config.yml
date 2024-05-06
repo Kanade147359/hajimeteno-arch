@@ -6,7 +6,7 @@
 
 # この設定ファイルでサポートするRe:VIEWのバージョン番号。
 # major versionが違うときにはエラーを出す。
-review_version: 5.0
+review_version: 5.7.0
 
 # ほかの設定ファイルの継承を指定できる。同じパラメータに異なる値がある場合は、
 # 呼び出し元の値が優先される。
@@ -17,19 +17,19 @@ review_version: 5.0
 # inherit: ["A.yml", "B.yml"]
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
-bookname: ReVIEWの使い方
+bookname: dockerを使ってコンパイルする方法
 # 記述言語。省略した場合はja
 language: ja
 
 # 書名
-booktitle: {name: "Re:VIEWの使い方", file-as: "Re:VIEWの使い方"}
+booktitle: {name: "dockerを使ってコンパイルする方法", file-as: "How-to-build-in-docker"}
 
 # 著者名。「, 」で区切って複数指定できる
 aut: [{name: "Kanade", file-as: "Kenade"}]
 
 # 以下はオプション
 # 以下はオプション(autと同じように配列書式で複数指定可能)。
-# 読みの指定はaut:の例を参照。
+# 読みの指定はaut:の例を参照。How-to-build-in-docker
 # a-が付いているものはcreator側、
 # 付いていないものはcontributor側(二次協力者)に入る
 # a-adp, adp: 異なるメディア向けに作り直した者

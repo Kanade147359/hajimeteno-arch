@@ -27,7 +27,7 @@ Re:VIEWにはそんな機能はないのでlatexの組み込みコマンドで�
       \end{center}
     \end{minipage}
  //}
- 
+
  //embed[latex]{
     \begin{minipage}{0.5\hsize}
       \begin{center}

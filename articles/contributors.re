@@ -1,3 +1,9 @@
-= 著者紹介
+= 宣伝
 
 ==== Kanade/@Kanade_gld
+
+
+
+Bluesky
+
+YouTube 
