@@ -63,7 +63,7 @@ BIOS
 
 次のコマンドの出力を確認してください。
 //cmd{ 
-ls /sys/firmware/efi/efivars
+# ls /sys/firmware/efi/efivars
 //}
 
 このコマンドの出力結果が正しく表示されている場合はUEFIモードで起動しています。
@@ -108,7 +108,7 @@ Wifi設定は@<b>{iwd}というソフトを用いて行います。
 まず認識されているディスクを確認しましょう。以下のようにfdisk -lで確認ができます。
 
 //cmd{ 
-fdisk -l
+# fdisk -l
 //}
 
 Linuxにおいてハードディスクのようなデバイスは/devディレクトリの下にファイルとして表示され、通常のファイルと同様に扱うことができます。
@@ -129,7 +129,7 @@ GPTで分割する場合、マニュアルに記載されているfdiskではな
 ここではgdiskをわかりやすいUIで使いやすくしたcgdiskを用いていきます。
 
 //cmd{ 
-cgdisk /dev/sda
+# cgdisk /dev/sda
 //}
 
 このような画面が表示されると思います。
@@ -198,9 +198,9 @@ Enter new partition name, or <Enter> to use the current name:
 @<b>{mkfs}というコマンドを用いて以下のようにフォーマットしていきます。
 
 //cmd{
-mkfs.fat -F 32 /dev/sda1 #fat32にフォーマット
-mkswap /dev/sda2 #swap領域を作成
-mkfs.ext4 /dev/sda3 #ext4に作成
+# mkfs.fat -F 32 /dev/sda1 #fat32にフォーマット
+# mkswap /dev/sda2 #swap領域を作成
+# mkfs.ext4 /dev/sda3 #ext4に作成
 //}
 
 簡単にそれぞれのフォーマットを説明します。
@@ -212,9 +212,9 @@ UEFIはfat32しか読むことができないため、EFIパーティション�
 EFIシステムパーティションをマウントするとき、/mnt/bootが元々存在しないので--mkdirオプションを忘れないようにしましょう。
 
 //cmd{
-mount /dev/sda2 /mnt
-mount --mkdir /dev/sda1 /mnt/boot
-mkswap /dev/sda1
+# mount /dev/sda2 /mnt
+# mount --mkdir /dev/sda1 /mnt/boot
+# mkswap /dev/sda1
 //}
 
 ここまでできたらシステムのインストールに進んでください。
@@ -238,7 +238,7 @@ UEFIモードの場合と比べるとEFI system partitionがなくシンプル�
 実際に分割していきましょう。
 
 //cmd{
-fdisk /dev/sda
+# fdisk /dev/sda
 //}
 
 すると対話型プロンプトに入ります。@<b>{m}でヘルプを表示します。
@@ -255,15 +255,15 @@ Last sectorの欄で実際のサイズを指定します。4GBのパーティシ
 @<b>{mkfs}というコマンドを用いて以下のようにフォーマットしていきます。
 
 //cmd{
-mkswap /dev/sda1 #swap領域を作成
-mkfs.ext4 /dev/sda2 #ext4に作成
+# mkswap /dev/sda1 #swap領域を作成
+# mkfs.ext4 /dev/sda2 #ext4に作成
 //}
 
 それぞれのファイルシステムをマウントします。
 
 //cmd{
-mount /dev/sda2 /mnt
-mkswap /dev/sda1
+# mount /dev/sda2 /mnt
+# mkswap /dev/sda1
 //}
 
 ここまで終わったらシステムのインストールに移動しましょう。
@@ -275,7 +275,7 @@ mkswap /dev/sda1
 baseパッケージとlinuxカーネル、ファームウェアをインストールしていきます。
 
 //cmd{ 
-pacstrap -K /mnt base linux linux-firmware 
+# pacstrap -K /mnt base linux linux-firmware 
 //}
 
 これらのパッケージをインストールすると最低限Linuxとして動く状態を作ることができます。
@@ -283,6 +283,9 @@ pacstrap -K /mnt base linux linux-firmware
 == システムの設定
 
 Linuxシステムの準備ができたので実際にその環境に入ってシステムの設定を行っていきます。
+
+=== /etc/fstabの生成
+
 その際に、/etc/fstabというファイルが必要になるため、システムに入る前に作成していきます。
 fstabは起動時マウントするデバイスを指定する重要なファイルです。
 このファイルの設定がないと/bootやswap領域が使えないため、必ず設定します。
@@ -290,32 +293,112 @@ fstabの設定は手動で書くこともできますが、少し面倒です。
 以下のコマンドを実行すると/etc/fstabが自動生成されます。とても便利。
 
 //cmd{
-genfstab -U /mnt >> /mnt/etc/fstab
+# genfstab -U /mnt >> /mnt/etc/fstab
 //}
-
-作成された/etc/fstabを確認してみましょう。
-//cmd{
-cat /etc/fstab
-//}
-以下のような出力になればOKです。
 
 //indepimage[][]
 
-/etc/fstabが設定されていることが確認できればシステムに入っていきます。
+=== chroot
+
+/etc/fstabを作成したらシステムに入っていきます。
 システムに入るときは@<b>{chroot}というコマンドを使います。chrootは一時的に指定したディレクトリを新しくルートディレクトリに変更して操作する環境を変えるコマンドです。
 この変更された環境は@<b>{chroot監獄}というらしいです。
 直接chrootを使うと/procのようなシステムファイルのマウント、ネットワーク設定の引き継ぎなどの設定を行う必要があり、とても面倒です。
 そこで@<b>{arch-chroot}というコマンドを使います。以下のようにarch-chrootを実行すると/mntにインストールした新しいシステムに操作対象を変更できます。
 
 //cmd{
-arch-chroot /mnt
+# arch-chroot /mnt
 //}
 
 すると
 
 //cmd{
-
+[root@archiso /]#
 //}
 
+という表示になると思います。
+このような表示になればchroot成功です。
 
+=== タイムゾーンの変更
 
+以下のコマンドを入力してタイムゾーンを設定してください。日本に住んでいる方はタイムゾーンをAsia/Tokyoに指定します。
+
+//cmd{
+# ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+//}
+
+ちなみにln -sはシンボリックリンク(Windowsでいうショートカット)を作成するコマンドです。
+このコマンドは/etc/localtimeという名前のAsia/Tokyoへのシンボリックリンクを作成します。
+
+以下のコマンドで時刻を調整するファイル/etc/adjtimeを作成します。
+
+//cmd{
+hwclock --systohc
+//}
+
+==　ロケール設定
+
+次にロケールを設定します。ロケールを設定するとき、ファイルの内容を直接書き換える必要があり、テキストエディタが必要になります。
+標準でviというテキストエディタはインストールされていますが、使い方にクセがあるため、新たにテキストエディタをダウンロードします。
+なんでもよいのですが、CLI上で動作するテキストエディタが初めて、という方はnanoが一番直感的でわかりやすいと思います。
+nanoをインストールしていきましょう。インストールするときは@<b>{pacman}を使います。
+
+pacmanはArch LinuxのパッケージマネージャでArch Linuxの最も重要な機能の一つです。
+パッケージマネージャとはアプリを必要なファイルを集めた「パッケージ」として管理し、各パッケージの依存関係の確認を行ってくれるアプリです。
+Windowsにはwinget、macOSにはHomebrew、Ubuntuにはaptというパッケージマネージャがあります。
+以下のようなコマンドでnanoをインストールします。
+
+//cmd{
+pacman -S nano
+//}
+
+パッケージのインストールの際は-Sオプションをつけます。
+これでnanoがインストールされました。尚、後からもchroot下で追加でパッケージを入れていきますが、先程のbaseパッケージと同じタイミングでpacstrapでインストールしても問題ありません。
+
+/etc/locale.genを編集し、"en_US.UTF-8 UTF-8"と"ja_JP.UTF-8 UTF-8"が書かれた行をアンコメントします。以下のコマンドで/etc/locale.genをnanoで開きます。
+
+//cmd{
+nano /etc/locale.gen
+//}
+
+つまり行頭の#を消してください。
+
+編集が終わったら保存し、以下のコマンドを実行します。
+
+//cmd{
+locale-gen
+//}
+
+次に/etc/locale.confを作成します。jpに設定したくなりますが、日本語フォントがインストールされていないため、jpに設定すると文字が化けて全く読めなくなります。
+そのため、CLI環境はen_US.UTF-8に設定しておきましょう。
+存在しないファイルをnanoで指定すると新しいファイルを作ることができます。
+
+//cmd{
+nano /etc.locale.conf
+//}
+
+以下の一行を書きます。
+
+//cmd{
+LANG=en_US.UTF-8
+//}
+
+次にキーマップを指定します。
+/etc/vconsole.confを作成して次の一行を書きます。
+
+//cmd{
+KEYMAP=jp106
+//}
+
+== ネットワーク設定
+
+ネットワークの設定を行います。
+まずホストネームを指定します。
+/etc/hostnameファイルを作成してホストの名前をファイルに追記すると指定ができます。
+私はArch-laptopとしますが、好きな名前をつけてあげてください。
+
+//cmd{
+Arch-laptop
+//}
+
+次にNetworkManagerをインストールしていきます。

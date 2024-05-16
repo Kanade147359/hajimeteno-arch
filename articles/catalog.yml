@@ -1,13 +1,12 @@
 PREDEF:
   - preface.re
-
 CHAPS:
-  - article1.re
-  - article2.re
+  - part1.re
+  - part2.re
+  - part3.re
+  - part4.re
 APPENDIX:
-  - tokcs.re
+  - appendix1.re
 POSTDEF:
   - contributors.re
-# CHAPS:
-#   - article2.re
 
