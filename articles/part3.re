@@ -187,7 +187,7 @@ sudo pacman -S noto-fonts-cjk
 
 === Fcitx5のインストール
 
-入力メソッドを
+入力メソッドをインストールしましょう。
 
 ## AURヘルパーのインストール
 
