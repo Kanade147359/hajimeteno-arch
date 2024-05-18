@@ -363,6 +363,14 @@ Windowsにはwinget、macOSにはHomebrew、Ubuntuにはaptというパッケー
 
 つまり行頭の#を消してください。
 
+//emlist[]{
+- #en_US.UTF-8 UTF-8
+- #ja_JP.UTF-8 UTF-8
+
++ en_US.UTF-8 UTF-8
++ ja_JP.UTF-8 UTF-8
+//}
+
 編集が終わったら保存し、以下のコマンドを実行します。
 
 //cmd{
@@ -374,7 +382,7 @@ Windowsにはwinget、macOSにはHomebrew、Ubuntuにはaptというパッケー
 存在しないファイルをnanoで指定すると新しいファイルを作ることができます。
 
 //cmd{
-# nano /etc.locale.conf
+# nano /etc/locale.conf
 //}
 
 以下の一行を書きます。

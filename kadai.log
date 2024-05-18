@@ -1,0 +1,221 @@
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.5.17)  17 MAY 2024 21:01
+ restricted system commands enabled.
+**kadai.tex
+(./kadai.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended c
+ollection.
+luaotfload | conf : Root cache directory is "/Users/kanade/Library/texlive/2024/
+texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-res
+olved path "/usr/local/texlive/2024/texmf-dist/tex/luatex/luaotfload/fontloader-
+2023-12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/Users/kanade/Library/texlive/2024/
+texmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'.)
+*
+(Please type a command or say `\end')
+*[
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> [
+  
+? 
+
+*
+
+Overfull \hbox (20.0pt too wide) detected at line 0
+[][ 
+ []
+
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*
+(Please type a command or say `\end')
+*\end
+
+*\end
+! Missing \endcsname inserted.
+<to be read again> 
+\end/ 
+<*> \end
+     
+? 
+! Missing \endcsname inserted.
+<to be read again> 
+\end/ 
+<*> \end
+     
+? 
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/firstaid/latex2e-first-aid-for-ex
+ternal-files.ltx)
+! Incomplete \if; all text was ignored after line 37.
+<inserted text> 
+\fi 
+<*> \end
+     
+? 
+! Missing number, treated as zero.
+<to be read again> 
+F
+<*> \end
+     
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> \end
+     
+? 
+! Missing \endcsname inserted.
+<to be read again> 
+\end/ 
+<*> \end
+     
+? 
+
+(/usr/local/texlive/2024/texmf-dist/tex/latex/firstaid/latex2e-first-aid-for-ex
+ternal-files.ltx
+File: latex2e-first-aid-for-external-files.ltx 2024/02/29 v1.1c LaTeX kernel fi
+xes to external files and packages
+
+
+! LaTeX Error: Control sequence \FirstAidNeededT already defined.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.43 \cs_new:Npn\FirstAidNeededT
+                              #1#2#3{
+? 
+)
+
+! LaTeX Error: \begin{document} ended by \end{/}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> \end
+     
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+          
+<*> \end
+     
+? 
+! Extra \endcsname.
+\exp_args:Nc ...>\exp_after:wN #1\cs:w #2\cs_end: 
+                                                  
+<*> \end
+     
+? 
+! Missing \endcsname inserted.
+<to be read again> 
+\end/ 
+<*> \end
+     
+? 
+
+! LaTeX Error: \begin{document} ended by \end{/}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+<*> \end
+     
+? 
+! Missing } inserted.
+<inserted text> 
+}
+<*> \end
+     
+? 
+! Extra \endgroup.
+<recently read> \endgroup 
+          
+<*> \end
+     
+? 
+! Extra \endcsname.
+\exp_args:Nc ...>\exp_after:wN #1\cs:w #2\cs_end: 
+                                                  
+<*> \end
+     
+? 
+! Too many }'s.
+\__hook_replacement_spec:c ...acement_spec:c {#1}}
+                                                  
+<*> \end
+     
+? 
+! Extra \fi.
+\__prg_TF_true:w \fi: \use_ii:nn ->\fi: 
+                                        \use_i:nn 
+<*> \end
+     
+? 
+! TeX capacity exceeded, sorry [input stack size=10000].
+<inserted text> 
+\relax
+<*> \end
+     
+If you really absolutely need more capacity,
+you can ask a wizard to enlarge me.
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 43 strings out of 476447
+ 100000,1977958 words of node,token memory allocated 668 words of node memory still in use:
+   4 hlist, 2 local_par, 1 dir, 23 glue, 3 kern, 1 penalty, 11 glyph, 23 attribu
+te, 39 glue_spec, 23 attribute_list, 1 temp, 2 if_stack nodes
+   avail lists: 1:1,2:1,3:2,4:1,5:1
+ 22247 multiletter control sequences out of 65536+600000
+ 14 fonts using 591679 bytes
+ 10000i,0n,10002p,134b,42s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
