@@ -189,7 +189,17 @@ sudo pacman -S noto-fonts-cjk
 
 入力メソッドをインストールしましょう。
 
-## AURヘルパーのインストール
+=== Webブラウザのインストール
+
+日本語入力ができるようになったらWebブラウザをインストールしていきます。
+Webブラウザにはオープンソースソフトウェアである@<b>{Chromium}をインストールしていきます。
+ChromiumとはフリーでオープンソースなWebブラウザでGoogleにより開発、メンテナンスが進められています。
+Google ChromeにはChromiumに機能を追加して作られています。
+また、Microsoft EdgeやOpera、BraveなどのWebブラウザはChromiumを下に作られています。
+
+Chromiumは
+
+== AURヘルパーのインストール
 
 Arch Linuxには公式リポジトリの他にArch User Repository(以下 AUR)と呼ばれる非公式リポジトリがあります。
 この非公式リポジトリにはGoogle ChromeやVisual Studio CodeのようなプロプライエタリなソフトウェアはAURで配布されています。
@@ -239,7 +249,66 @@ paru pacman4console
 //}
 
 パッケージ名が列挙されるのでインストールするパッケージを選びます。今回は一つだけ表示されていると思うので1を入力します。
-レビューの表示を迫ってくるのでYを入力。レビューが表示されますがqキーを押すと退出できます。退出するとパッケージのビルドが始まります。
+レビューの表示を迫ってくるのでYを入力。レビューが表示されますがqキーを押すと退出できます。退出し、Accecpt changes?に了承すると、パッケージのビルドが始まります。
+
+pacman4consoleはすぐにビルドが終わるはずです。
+ビルド後pacmanでインストールするのでそのときパスワードを要求されます。
+無事に最後までいけばインストール成功です。
+
+pacman4consoleを起動してみましょう。
+
+//cmd{
+pacman4console
+//}
+
+//indepimage[][]
+
+このようにコンソール上でパックマンのようなものが遊べます。
+ちなみにKDE Applicationsの中には"Kapman"というこれまたパックマンもどきのゲームが用意されています。
+みんなパックマン好きなのかな…。
+
+pacman4consoleをアンインストールしてみます。
+
+アンインストールはpacmanコマンドで行います。
+
+//cmd{
+sudo pacman -S pacman4console
+//}
+
+paruはあくまでAURのパッケージのビルドを助けるツールであり、
+パッケージマネージャは一貫してpacmanです。
+
+=== Webブラウザのインストール
+
+日本語入力ができるようになったらWebブラウザをインストールしていきます。
+ここでは人気のWebブラウザであるGoogle Chromeをインストールしましょう。
+Google Chromeのようなオープンソース出ない部分を含むソフトは大抵AURに用意されています。
+早速AURヘルパーを使ってインストールしましょう。
+
+//cmd{
+paru google-chrome
+//}
+
+インストールするパッケージは一番上のものを選びます
+
+インストールが終わったらメニュー欄の「インターネット」にGoogle Chromeが追加されているはずです。
+
+Google Chromeでfcitx5の日本語入力を使うには追加で設定が必要になります。
+
+
+
+環境、ビルドによってはGoogle Chromeの動作が不安定になる可能性があります。
+現に私が使用している際にはフリーズがよく起こっていました。
+そのような場合は別のブラウザを使いましょう。
+ChromiumとはフリーでオープンソースなWebブラウザでGoogleにより開発、メンテナンスが進められています。
+Google ChromeにはChromiumに機能を追加して作られています。
+また、Microsoft EdgeやOpera、BraveなどのWebブラウザはChromiumを下に作られています。
+
+Chromiumは公式リポジトリに含まれているためpacmanでインストールします。
+
+//cmd{
+sudo pacman -S chromium
+//}
 
 
 
