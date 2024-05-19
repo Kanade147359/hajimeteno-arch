@@ -144,5 +144,25 @@ Vital一つで理論上Future Baseのような電子音楽を作曲できるす�
 また、有料ソフトでもStudio One6.5がLinuxにbeta対応したり、
 歌声合成ソフトであるSynthesizer VがLinuxに対応していたりと、Windowsでないと作曲ができないという常識はなくなりつつあります。
 
+== セキュリティ専門家になる!
+
+Linuxにはセキュリティ研究者向けに作られたディストリビューションが複数あります。代表的なものは@<b>{Kali Linux}ですね。
+Arch Linuxの派生ディストリビューションとして@<b>{BlackArch Linux}というものがあり、blackarchリポジトリを有効にすることで
+素のArch LinuxでもBlackArch向けのパッケージを参照できるようになります。
+
+以下の手順を踏んで用意されているstrap.shを実行します。
+
+//cmd{
+
+$ curl -O https://blackarch.org/strap.sh ← strap.shのインストール curlがなければpacmanでインストール
+
+$ echo 26849980b35a42e6e192c6d9ed8c46f0d6d06047 strap.sh | sha1sum -c ← SHA1で検証
+
+$ chmod +x strap.sh ← 実行権を追加
+
+$ sudo ./strap.sh ← rootで実行
+//}
+
+終わったらシステムアップデートを行います。
 
 
