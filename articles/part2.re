@@ -18,12 +18,13 @@ DVDドライブのあるノートパソコンであればDVDに焼いても問�
 1. rufusを使う(Windowsユーザ向け)
 
 rufusはブート可能なUSBドライブを簡単に作ることができるWindowsソフトです。
-rufusのダウンロードページ(https://rufus.ie/ja/)からダウンロードしてください。
+rufusのダウンロードページ@<href>{https://rufus.ie/ja/}からダウンロードしてください。
 
-//indepimage[][]
+//indepimage[rufus-download][rufusのダウンロードページ]
 
 64bitパソコンを使っている人が殆どかと思いますので
 rufus-4.4_x86.exeのようにx86とついているリンクを使ってください。
+
 
 同じようなソフトでbalenaEtherというものがあります。こちらはmacOSに対応しているのでmacの方はこちらを使うのが良いでしょう。
 使い方の説明は省略します。rufusよりUIは分かりやすいと思います。
