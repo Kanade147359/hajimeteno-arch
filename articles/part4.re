@@ -47,11 +47,11 @@ steamはmultilibリポジトリに含まれているため、multilibリポジ�
 nano /etc/pacman.conf
 //}
 //emlist[]{
-- 
-- 
-
-+
-+
+- #[multilib]
+- #Include = /etc/pacman.d/mirrorlist
+ 
++ [multilib]
++ Include = /etc/pacman.d/mirrorlist
 }
 multilibリポジトリには64bit環境で32bitアプリを実行するために必要なソフトウェアが含まれています。
 steamは一部32ビットのライブラリに依存しています。また、古いゲームとの互換性を保つために32bitのライブラリが必要です。
@@ -81,16 +81,21 @@ paru ttf-ms-win11-auto
 sudo pacman -S ttf-liberation
 //}
 
-2. GPUドライバのインストール
+2. OpenGLドライバのインストール
 
-ゲーム
+32bit版のOpenGL graphics driverを予めインストールしておきます。
+使用しているGPUの種類は機種によって異なるのでこのページ(@<href>{})の中から該当のGPUドライバを選んでください。
+自分はInterl CPUの内蔵GPUを用いているためlib32-mesaをインストールしておきました。64bit版(mesa)も取り敢えずインストールしておきます。
 
+//cmd{
+sudo pacman -S lib32-mesa mesa
+//}
 
 今回は自分が元々持っていたVampire Survivorsの動作確認をします。
+
 Windowsでプレイするときと操作は同じです。通常通りにゲームが起動され、
+
 デスクトップにショートカットも作成されます。
-
-
 
 # Windows対応ソフトを動かす(東方永夜抄)
 
@@ -100,23 +105,50 @@ Windowsでプレイするときと操作は同じです。通常通りにゲー�
  wineを用いることで一部のWindows向けの実行ファイルをLinux上で動かすことができます。とてもすごい。
  今回は有名な同人ゲームである「東方永夜抄」というゲームを動かします。
  大人気コンテンツである東方Projectの所謂「原作」と言われる東方Projectの生みの親ZUN氏が作成している弾幕シューティングゲームシリーズの第8作目です。
- 2004年のゲームなので
+ 2004年のゲームなので公式には現在サポートされているWindowsバージョン(10, 11)には対応していませんが、ちゃんと動きます。
  まず、wineをインストールしましょう。
 
  //cmd{
  sudo pacman -S wine
  //}
 
+ wineがインストールされるとDolphin上から直接.exeファイルを実行できるようになります。
+ インストーラーを実行してみましょう。
+ するとWindowsにインストールするときと同様の流れでインストールすることが出来ます。
+ インストールが終わる際、Windowsの際と同様にデスクトップにショートカットが作成されます。
+ それではショートカットから実行してみましょう。
+
  動きました! 東方永夜抄の解像度は640×480で解像度を変更するオプションは用意されていないので1980×1080で動かすとウィンドウが小さいです。
  しかし、BGMもちゃんと流れて、操作も問題ありません。文字の表示も問題ないようです。
 
  東方永夜抄では問題ありませんでしたが、ソフトによっては日本語が上手く表示されない場合があります。その際は@<b>{winetricks}でフォントを追加でインストールしましょう。
 
+//cmd{
+sudo pacman -S winetricks
+winetricks
+//}
+
+winetricksが起動したら"Select the default wineprefix"を選択してください。
+"Install font"を選択するフォントを選択する画面に遷移します。
+容量に余裕があるのならAll fontsを選んで良いと思います。
+インストールが終わったらちゃんと日本語が表示されるか再確認してみてください。
 
 ## 画像編集がしたい(Gimp)
 
-Adobe Photoshopは
-しかし、Adobe
+Adobe Photoshopは2次元コンピュータグラフィックスを代表するソフトで、画像編集ソフトのデファクトスタンダードとしてグラフィックデザイナーや映像編集者、Webデザイナーなど多くの人が使っています。
+しかし、Adobe Photoshopを使うには決して安くないライセンス料を払う必要があり、
+GIMPはPhotoshopと互換性がある無料の画像編集ソフトです。
+無料でありながらPhotoshopと遜色ない高機能な編集ができ、photoshopのプロジェクト保存形式PSDとの互換性もあります。
+使いこなせればPhotoshopで行ったのと大差ない出来の編集ができるようです。
+この本の表紙もGIMPで作成しています。
+gimpは公式リポジトリに含まれているためpacmanコマンドでインストールできます。
+
+//cmd{
+sudo pacman -S gimp
+//}
+
+起動してみるとこのような画面になります。
+操作感が独特ですが、詳しい使い方は調べると沢山出てきます。
 
 ## 3Dモデリングがしたい(Blender)
 
@@ -143,26 +175,4 @@ Vital一つで理論上Future Baseのような電子音楽を作曲できるす�
 
 また、有料ソフトでもStudio One6.5がLinuxにbeta対応したり、
 歌声合成ソフトであるSynthesizer VがLinuxに対応していたりと、Windowsでないと作曲ができないという常識はなくなりつつあります。
-
-== セキュリティ専門家になる!
-
-Linuxにはセキュリティ研究者向けに作られたディストリビューションが複数あります。代表的なものは@<b>{Kali Linux}ですね。
-Arch Linuxの派生ディストリビューションとして@<b>{BlackArch Linux}というものがあり、blackarchリポジトリを有効にすることで
-素のArch LinuxでもBlackArch向けのパッケージを参照できるようになります。
-
-以下の手順を踏んで用意されているstrap.shを実行します。
-
-//cmd{
-
-$ curl -O https://blackarch.org/strap.sh ← strap.shのインストール curlがなければpacmanでインストール
-
-$ echo 26849980b35a42e6e192c6d9ed8c46f0d6d06047 strap.sh | sha1sum -c ← SHA1で検証
-
-$ chmod +x strap.sh ← 実行権を追加
-
-$ sudo ./strap.sh ← rootで実行
-//}
-
-終わったらシステムアップデートを行います。
-
 
