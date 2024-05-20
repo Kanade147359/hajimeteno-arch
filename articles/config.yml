@@ -17,12 +17,12 @@ review_version: 5.7.0
 # inherit: ["A.yml", "B.yml"]
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
-bookname: dockerを使ってコンパイルする方法
+bookname: Arch Laptopを作る本
 # 記述言語。省略した場合はja
 language: ja
 
 # 書名
-booktitle: {name: "dockerを使ってコンパイルする方法", file-as: "How-to-build-in-docker"}
+booktitle: {name: "Arch Laptopを作る本", file-as: "Arch-Laptop"}
 
 # 著者名。「, 」で区切って複数指定できる
 aut: [{name: "Kanade", file-as: "Kenade"}]
@@ -111,12 +111,12 @@ epubversion: 3
 htmlversion: 5
 
 # 目次として抽出する見出しレベル
-toclevel: 3
+toclevel: 2
 
 # 採番の設定。採番させたくない見出しには「==[nonum]」のようにnonum指定をする
 #
 # 本文でセクション番号を表示する見出しレベル
-secnolevel: 3
+secnolevel: 2
 
 # 本文中に目次ページを作成するか。省略した場合はnull (作成しない)
 toc: true

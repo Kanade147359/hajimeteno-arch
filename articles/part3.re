@@ -76,6 +76,13 @@ $ sudo systemctl enable sddm
 ここまで設定したら再起動をすれば、デスクトップ環境の導入完了です。
 思ったより簡単だったのではないでしょうか
 
+なおVirtualBoxを使っている方はvirtualbox-guest-utilsをインストールしておきます。
+ゲストOS向けにドライバやアプリが最適化されます。
+
+//cmd{
+$ sudo pacman -S virtualbox-gurst-utils
+//}
+
 == 端末エミュレータのインストール
 
 無事にデスクトップ環境に入れましたでしょうか。
