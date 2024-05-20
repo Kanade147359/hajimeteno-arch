@@ -18,7 +18,7 @@ $ nmcli device wifi connect @<i>{SSID} password @<i>{password}
 ここまでできたらネットワーク接続を確認してみます。
 
 //cmd{
-ping www.archlinux.jp
+$ ping www.archlinux.jp
 //}
 
 この用に設定したWi-fiネットワークは保存され、次再起動した際に自動的につながるようになります。
@@ -27,7 +27,7 @@ ping www.archlinux.jp
 インターネットへの接続を確認したらデスクトップ環境をインストールしていきましょう。
 デスクトップ環境は様々な種類がありますが、今回は個人的に好きなKDEをインストールしていきます。
 
-## そもそもデスクトップ環境とは何か
+== そもそもデスクトップ環境とは何か
 
 私たちが今まで触ってきた黒い画面にコマンドを打って操作をするUIをCLI(Command Line Interface)といいます。
 Linux向けのデスクトップ環境は様々な種類があり、それぞれに特徴があります。
@@ -37,12 +37,12 @@ Linux向けのデスクトップ環境は様々な種類があり、それぞれ
 
 今回はKDEというデスクトップ環境をインストールしてArch Laptopを完成させていきましょう。
 
-## インストール
+== インストール
 
 インストールはとても簡単です。pacmanでplasmaパッケージグループをインストールしていきます。
 
 
-//emlist[Visual Studio Codeのインストール]{
+//cmd{
 $ sudo pacman -S plasma
 //}
 
@@ -64,23 +64,23 @@ Proceed with installation?と出たらYを入力してインストールを始�
 Plasmaが推奨しており、KDEで設定ができるSDDMを採用します。
 
 //emlist[SDDMのインストール]{
-sudo pacman -S sddm
+$ sudo pacman -S sddm
 //}
 
 SDDMのサービスを有効化します。
 
 //emlist[起動時SDDMを自動で有効化するよう設定]{
-sudo systemctl enable sddm
+$ sudo systemctl enable sddm
 //}
 
 ここまで設定したら再起動をすれば、デスクトップ環境の導入完了です。
 思ったより簡単だったのではないでしょうか
 
-## 端末エミュレータのインストール
+== 端末エミュレータのインストール
 
 無事にデスクトップ環境に入れましたでしょうか。
 
-//indepimage[][]
+//indepimage[start-kde][Plasmaデスクトップへようこそ]
 
 このWindowsライクな非常にわかりやすいUIがKDEの魅力です。
 
@@ -100,7 +100,7 @@ Yakuakeはトップダウン型のターミナルで好きなときに指定し�
 
 安心してください。@<b>{仮想コンソール}を開きます。
 
-### 仮想コンソール
+=== 仮想コンソール
 
 GUI環境であってもコンソール(CLI)を開くことができます。
 ctrl+alt+F3を押してください。
@@ -108,10 +108,12 @@ ctrl+alt+F3を押してください。
 インストール直後のログインのようにユーザ名とパスワードを入力すると
 コンソールに入ることができました。
 
+//indepimage[virtualconsole][仮想コンソール]
+
 Linuxには仮想コンソールが複数用意されています。(tty1~tty6)
 どの仮想コンソールに入っているかは@<b>{tty}コマンドで確認できます。
 //cmd{
-tty
+$ tty
 //}
 
 KDEの場合、tty1とtty2がplasmaとsddmに使われているので他に使うことができる仮想コンソールはtty3~6です。
@@ -124,7 +126,7 @@ KDEの場合、tty1とtty2がplasmaとsddmに使われているので他に使�
 さて、仮想コンソールに入ったのでpacmanでYakuakemをインストールしましょう。
 
 //cmd{
-sudo pacman -S yakuake
+$ sudo pacman -S yakuake
 //}
 
 インストールが完了したら元のデスクトップ環境に戻りましょう。
@@ -134,21 +136,23 @@ Ctrl+Alt+F1で元のデスクトップ画面に戻ることができます。
 初めて開くときにYakuakeを呼び出すときに使うキーを指定します。初期設定はF12ですが、F12キーを別のアプリでよく用いる人は変える必要があるでしょう。
 一度開くと指定したキーでYakuakeが自由に呼び出せるようになります。とても便利ですね。
 
+//indepimage[yakuake][Yakuake いつでも端末を呼び出せる]
 
-
-### 自動起動設定
+=== 自動起動設定
 
 Yakuakeは裏で動かしておいて、必要に応じて開けるようにしておきたいです。
 そのためには再起動時Yakuakeを都度起動する必要があります。
 Yakuakeをパソコンの起動時自動で起動してくれるように設定しておきましょう。
 
 KDEシステム設定を開きます。
-システムの欄に自動起動というメニューがあります。
+Systemの欄にAutostartというメニューがあります。
 右上の追加を押してYakuakeを選びます。
+
+//indepimage[Autostart][自動起動設定]
 
 この用に設定をしておくとYakuakeが再起動時自動で呼ばれる用になります。
 
-## KDE Applicationsについて
+== KDE Applicationsについて
 
 KDE ApplicationsはKDEによって開発が進められているplasma上で動かすことができるアプリ郡です。
 KDE Applicationsは100以上のアプリケーションによって構成されており、エクスプローラや端末エミュレータのような必須級のアプリから麻雀、マインスイーパーのようなゲームまで多種多様なアプリが用意されています。
@@ -157,7 +161,7 @@ KDE Applicationsは100以上のアプリケーションによって構成され�
 KDE Applicationsから必須級のアプリを3つ入れていきます。ファイルエクスプローラである@<b>{Dolphin}をダウンロードしておきましょう。
 
 //cmd{
-sudo pacman -S dolphin
+$ sudo pacman -S dolphin
 //}
 
 インストールするとWindowsのエクスプローラのようなアイコンが追加された事がわかります。
@@ -165,17 +169,20 @@ sudo pacman -S dolphin
 また、圧縮ファイルの作成、解凍を行うアーカイブマネージャである@<b>{Ark}をインストールしましょう。
 
 //cmd{
-sudo pacman -S ark
+$ sudo pacman -S ark
 //}
 
 最後にスクリーンショットを行うためのアプリ、Spectacleをインストールします。
 
 //cmd{
-sudo pacman -S spectacle
+$ sudo pacman -S spectacle
 //}
 
 インストールが終わったらPrintScreenキーを押してみてください。
 Spectacleが開くようになっているはずです。
+
+//indepimage[spectacle][Spectacle スクショを取れる]
+
 開かない場合は手動で開いて設定を確認してください。
 
 ## 日本語環境のインストール
@@ -184,11 +191,14 @@ Spectacleが開くようになっているはずです。
 まず、日本語フォントをインストールしていきます。とりあえずGoogleのNotoCJKフォントをインストールしていきます。
 
 //cmd{
-sudo pacman -S noto-fonts-cjk
+$ sudo pacman -S noto-fonts-cjk
 //}
 
 インストールが終わったら日本語が上手く表示される様になるはずです。
 この状態になったらシステム設定の「Region & Language」から言語を「日本語」に変えましょう。
+
+//indepimage[Region&Language][言語設定]
+
 再起動すると言語が日本語に変更されます。フォントに違和感があるかもしれませんが、公式レポジトリ、また後述のAURを含めると様々な日本語フォントが用意されています。
 システムのフォントもその中から選ぶことができるため、後に好きなように変更をしましょう。
 
@@ -199,12 +209,17 @@ sudo pacman -S noto-fonts-cjk
 Fcitx5をインストールしましょう。この際、Google日本語入力から派生したOSSである@<b>{mozc}を一緒にインストールします。
 
 //cmd{
-sudo pacman -S fcitx5-mozc
+$ sudo pacman -S fcitx5-mozc
 //}
 
 インストールしたらメニューを開きましょう。キーボード>仮想キーボードメニューを開きます。
+
+//indepimage[keyboardsetting][仮想キーボードを設定]
+
 ここでFcitx5を選び、適用を選択しましょう。Fcitx5が使えるようになりました。
 jp配列を使っている人はキーボード>キーボード>レイアウトと進め、レイアウトを設定に日本語レイアウトを追加してください。(再起動するとリセットされます…)
+
+//indepimage[keyboardLayout][キーボードレイアウトを設定]
 
 ctrl+spaceを押すと入力メソッドが切り替わります。
 試しに端末エミュレータに日本語を打ってみてください。
@@ -221,35 +236,35 @@ paru自体がAURのパッケージとして配布されているため、ちゃ�
 
 まず、必要な開発パッケージをインストールします。
 
-//emlist[base-develのインストール]{
-sudo pacman -S base-devel
+//cmd{
+$ sudo pacman -S base-devel
 //}
 
 AURのパッケージはbase-develがある前提でビルド手順が組まれているため、必ずインストールしましょう。
 gitパッケージをインストールします。
 
 //cmd{
-sudo pacman -S git
+$ sudo pacman -S git
 //}
 paruのgitリポジトリをクローンします。
 
-//emlist[]{
-git clone https://aur.archlinux.org/paru.git
+//cmd{
+$ git clone https://aur.archlinux.org/paru.git
 //}
 
 ビルドしてインストールをします。
 
-//emlist[]{
-cd paru
-makepkg -si
+//cmd{
+$ cd paru
+$ makepkg -si
 //}
 選択肢はデフォルトで構いません。
 ビルドには時間がかかるので気長に待ちましょう。
 
 ビルドが無事完了したら動作確認をしてみましょう。
 
-//emlist[]{
-paru -V
+//cmd{
+$ paru -V
 //}
 
 バージョン番号が表示されたらインストール完了です。
@@ -259,8 +274,8 @@ paru -V
 paruを実際に使ってみましょう。ここではコンソール上でパックマンが遊べるpacman4consoleをインストールしていきます。
 以下のようなコマンドでインストールができます。
 
-//emlist[]{
-paru pacman4console
+//cmd{
+$ paru pacman4console
 //}
 
 パッケージ名が列挙されるのでインストールするパッケージを選びます。今回は一つだけ表示されていると思うので1を入力します。
@@ -273,10 +288,10 @@ pacman4consoleはすぐにビルドが終わるはずです。
 pacman4consoleを起動してみましょう。
 
 //cmd{
-pacman4console
+$ pacman4console
 //}
 
-//indepimage[][]
+//indepimage[pacman4console][コンソール上でpacmanが遊べます]
 
 このようにコンソール上でパックマンのようなものが遊べます。
 ちなみにKDE Applicationsの中には"Kapman"というこれまたパックマンもどきのゲームが用意されています。
@@ -287,7 +302,7 @@ pacman4consoleをアンインストールしてみます。
 アンインストールはpacmanコマンドで行います。
 
 //cmd{
-sudo pacman -S pacman4console
+$ sudo pacman -S pacman4console
 //}
 
 paruはあくまでAURのパッケージのビルドを助けるツールであり、
@@ -310,16 +325,18 @@ paru google-chrome
 
 Google Chromeでfcitx5の日本語入力を使うには追加で設定が必要になります。
 
+//indepimage[editapp][アプリケーションを編集]
+
 Google Chromeを右クリックして「アプリケーションを編集」を選択します。
 アプリケーション(A)を選択肢、引数に以下の文字列を追加します。
 
-//emlist[]{
+//emlist[引数を追加]{
 --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
 //}
 
 また、環境変数の欄に以下の変数を追加しておきます。
 
-//cmd{
+//emlist[環境変数を設定]{
 QT_IM_MODULE=fcitx
 //}
 
@@ -336,7 +353,7 @@ Google ChromeにはChromiumに機能を追加して作られています。
 Chromiumは公式リポジトリに含まれているためpacmanでインストールします。
 
 //cmd{
-sudo pacman -S chromium
+$ sudo pacman -S chromium
 //}
 
 Chromiumで日本語入力を行う際もGoogle Chromeと同様の設定が必要になります。
@@ -357,6 +374,9 @@ $ alsamixer
 //}
 
 するとこのようなUIが表示されます。
+
+//indepimage[alsamixer][alsamixer Headphone欄がmuteになっている]
+
 音が出ない場合、Headphone欄がミュート(MM)になっているのではないでしょうか
 Headphoneにカーソルを合わせてmキーを押すとミュートが解除されます。
 Headphoneチャンネルの音量を上げて再度試してみてください。
@@ -364,7 +384,7 @@ Headphoneチャンネルの音量を上げて再度試してみてください�
 設定後
 
 //cmd{
-sudo alsactl store
+$ sudo alsactl store
 //}
 
 を実行すると設定が保存されます。
@@ -372,6 +392,9 @@ sudo alsactl store
 == GRUBメニューをオシャレに
 
 起動メニュー、味気ないと思いませんか?
+
+//indepimage[GRUB-before][味気ないGRUBメニュー]
+
 実はGRUBメニューのテーマは自由に変えることができます。
 grub2-themesをクローンします。
 
@@ -389,14 +412,21 @@ $ sudo ./install.sh -b -t tela
 それぞれ、-tの引数をstylish、vimix、whitesurにするとテーマ変更できます。
 設定が終わり試しに再起動してみると、このようにGRUBメニューがおしゃれになりました。
 
+//indepimage[grub-after][オシャレなGRUB]
+
 grub2-themesの他にもGNOME-LOOK.ORGでユーザが投稿しているテーマをインストールすることができます。
 様々なテーマを使うことができるため、一目見てみることをお勧めします。
 
 SDDMのテーマもいまいち味気ない感じがします。
+
+//indepimage[start-sddm][]
+
 これはKDEのテーマに合わせて統一感を出します。
 
 システム設定にてsddmと検索するとログイン画面(SDDM)という設定が見つかります。
 ここではPlasma設定を適用をしてみましょう。
+
+//indepimage[sddm-setting][SDDM画面のセッティングをしましょう]
 
 するとログイン画面とデスクトップ環境に統一感が出ます。
 

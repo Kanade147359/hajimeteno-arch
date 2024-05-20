@@ -50,7 +50,7 @@ $ nano /etc/pacman.conf
 //emlist[]{
 - #[multilib]
 - #Include = /etc/pacman.d/mirrorlist
- 
+
 + [multilib]
 + Include = /etc/pacman.d/mirrorlist
 }
@@ -134,11 +134,16 @@ $ sudo pacman -S wine
 wineがインストールされるとDolphin上から直接.exeファイルを実行できるようになります。
 インストーラーを実行してみましょう。
 
-
+//indepimage[touhou-install][インストールが始まります]
 
 するとWindowsにインストールするときと同様の流れでインストールすることが出来ます。
+
+//indepimage[touhou-youkan][羊羹でも食べててください]
+
 インストールが終わる際、Windowsの際と同様にデスクトップにショートカットが作成されます。
 それではショートカットから実行してみましょう。
+
+//indepimage[touhou-wine][デモプレイ画面]
 
 動きました! 東方永夜抄の解像度は640×480で解像度を変更するオプションは用意されていないので1980×1080で動かすとウィンドウが小さいです。
 しかし、BGMもちゃんと流れて、操作も問題ありません。文字の表示も問題ないようです。
@@ -183,7 +188,7 @@ Blenderは公式リポジトリに含まれているため、pacmanでダウン�
 sudo pacman -S blender
 //}
 
-//indepimage[][]
+//indepimage[blender][Blenderの初期画像]
 
 他のOSと遜色なく使えます。
 
@@ -204,6 +209,8 @@ sudo pacman -S reaper
 pacmanから入れると試用期間がなく"Reaper is not free"の文とともにクレジットが表示されます。
 取り敢えず初めはありがたく無料で使わせていただきます。
 ライセンス料は比較的安いので長く使うのであればライセンスを買ったほうが良いでしょう。
+
+//indepimage[reaper][Reaperの初期画面]
 
 Reaperの詳しい使い方は省略します。DAWソフトは使い方が独特でなれないこともあると思いますが、
 YouTube等で使い方の解説動画が多く載っています。
