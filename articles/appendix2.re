@@ -4,7 +4,9 @@
 
 pacmanの使い方を簡単にまとめます。
 取り敢えず覚えておいた方が良い物だけを乗せています。
-詳しくはArch Linux wiki(@<href>{https://wiki.archlinux.jp/index.php/Pacman})を参照してください。
+詳しくはArch Linux wiki@<fn>{arch-pacman}を参照してください。
+
+//footnote[arch-pacman][https://wiki.archlinux.jp/index.php/Pacman]
 
 === システムのアップデート
 
