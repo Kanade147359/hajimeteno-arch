@@ -17,7 +17,7 @@ review_version: 5.7.0
 # inherit: ["A.yml", "B.yml"]
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
-bookname: Arch Laptopを作る本
+bookname: Arch-Laptop
 # 記述言語。省略した場合はja
 language: ja
 
@@ -56,7 +56,7 @@ edt: ["Kanade"]
 # a-oth, oth: その他
 # a-pht, pht: 撮影責任者
 # a-pbl, pbl: 出版社（発行所）
-pbl: Kanade
+pbl: ねこのしっぽ
 # a-prt, prt: 印刷所
 # prt: TechBooster
 # a-red, red: 項目の枠組起草者

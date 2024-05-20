@@ -2,6 +2,7 @@
 
 前章ではplasma desktopと日本語入力環境を導入しました。また、AURヘルパーを導入し、AURに置いてあるパッケージを参照できるようにしました。
 これでArch Laptopをノートパソコンとして普段使いする準備が整いました！あとは各自必要なアプリを入れて使い始めるだけです。
+
 本章ではArch Laptopを更に改造していきます。使用用途ごとに章分けしたので必要に応じて読んでいってください。
 
 == Officeソフトを使う
@@ -39,35 +40,39 @@ LibreOfficeはWindows、macOSでも使えるので選択肢として頭に置い
 みなさんコードエディタは何を使っているのでしょうか?
 今回はユーザ数が多く私も使っているVitual Studio Code(以下VS Code)をインストールします。
 
-Arch Linux向けのVS Codeは公式のArch LinuxのオープンソースリリースであるCode、プロプライエタリなビルドであるvisual Studio Code、コミュニティのオープンソースリリースであるVSCodiumがあります。
+Arch Linux向けのVS Codeは公式のArch Linuxのオープンソースリリースである@<b>{Code}、プロプライエタリなビルドである@<b>{visual Studio Code}、コミュニティのオープンソースリリースである@<b>{VSCodium}があります。
 全てOSS版のCodeからビルドされていますが、大きな違いとしてOSS版のVS Code(Code, VSCodium)だとMicrosoftが提供するプロプライエタリな機能が使えないという点があります。
 これによりOSS版だとVisual Studio Marketplaceから拡張機能を参照できないため使うことができる拡張機能の種類に制限があります。
-例えば"GitHub Copilot"、公式の"Python","Jupyter","C/C++"などの拡張機能、Azure関連の公式の拡張機能などがOSS版では使用できません。
+例えば"GitHub Copilot"、公式の"Python", "Jupyter", "C/C++"などの拡張機能、Azure関連の公式の拡張機能などがOSS版では使用できません。
 
 筆者はGitHub Copilotを使用したいためプロプライエタリなVS Codeを使用します。
 公式レポジトリにはないため、インストールする際はAURヘルパーを用います。
 
-//emlist[Visual Studio Codeのインストール]{
+//cmd{
 $ paru visual-studio-code-bin
 //}
 
 参考にCode、VSCodiumのインストール方法も乗せておきます。
 どれかしらのVS Codeがインストールしている状態で別のビルドをインストールしようとすると元々入っていたVS Codeは消去されます。
 
-//emlist[Codeのインストール]{
+//cmd{
 $ sudo pacman -S code 
 //}
 
-//emlist[VSCodiumのインストール]{
+//cmd{
 $ paru vscodium
 //}
 
 VS Codeで日本語入力を行う際は、3章のGoogle Chromeに行ったものと同様の設定が必要になります。
 忘れずに設定をしておきましょう。
 
+//embed[latex]{
+\clearpage
+//}
+
 == steamのインストール
 
-よくPCでゲームをする方はご存知だと思いますが、Steamは米Valve社が提供しているゲーム配信プラットフォームです。
+よくPCでゲームをする方はご存知だと思いますが、@<b>{Steam}は米Valve社が提供しているゲーム配信プラットフォームです。
 ゲームの購入とインストールは全てSteam上で行うのでSteamを用意すればすぐにゲームで遊べるようになります。
 
 === multilibリポジトリの有効化
@@ -85,7 +90,8 @@ $ nano /etc/pacman.conf
 
 + [multilib]
 + Include = /etc/pacman.d/mirrorlist
-}
+//}
+
 multilibリポジトリには64bit環境で32bitアプリを実行するために必要なソフトウェアが含まれています。
 steamは一部32ビットのライブラリに依存しています。また、古いゲームとの互換性を保つために32bitのライブラリが必要です。
 そのため、steamはmultilibリポジトリにまとめられています。
@@ -134,7 +140,7 @@ Windowsでプレイするときと操作は同じです。通常通りにゲー�
 
 //indepimage[Vampire-Shortcut][ショートカットも生成される]
 
-また、@<b>{OBE Studio}をインストールして配信環境も整えることが出来ます。
+また、@<b>{OBS Studio}をインストールして配信環境も整えることが出来ます。
 
 //cmd{
 $ sudo pacman -S obs-studio
@@ -156,7 +162,7 @@ steamではゲームごとに対応しているプラットフォームが決め
 Windows向けゲームはプレイすることは出来ないのでしょうか。
 いえ、.exeファイルが用意できれば可能性はあります。wineを使うのです。
 
-//indepimage[WINE][wineのロゴ]
+//indepimage[WINE][wineのロゴ][scale=0.3]
 
 Windows向けの実行ファイル(.exe)をLinuxで動かすことができるプログラム郡である@<b>{wine}というものがあります。
 wineを用いることで一部のWindows向けの実行ファイルをLinux上で動かすことができます。とてもすごい。
@@ -205,12 +211,12 @@ winetricksが起動したら"Select the default wineprefix"を選択してくだ
 Adobe Photoshopは2次元コンピュータグラフィックスを代表するソフトで、画像編集ソフトのデファクトスタンダードとしてグラフィックデザイナーや映像編集者、Webデザイナーなど多くの人が使っています。
 しかし、Adobe Photoshopを使うには決して安くないライセンス料を払う必要があり、軽く使うにはとても使える代物ではありません。
 
-GIMPはPhotoshopと互換性がある無料の画像編集ソフトです。
+@<b>{GIMP}はPhotoshopと互換性がある無料の画像編集ソフトです。
 無料でありながらPhotoshopと遜色ない高機能な編集ができ、photoshopのプロジェクト保存形式PSDとの互換性もあります。
 使いこなせればPhotoshopで行ったのと大差ない出来の編集ができるようです。
 この本の表紙もGIMPで作成しています。
 
-//indepimage[gimp][GIMPのロゴ]
+//indepimage[gimp][GIMPのロゴ][scale=0.5]
 
 gimpは公式リポジトリに含まれているためpacmanコマンドでインストールできます。
 
@@ -244,7 +250,7 @@ sudo pacman -S blender
 みなさん作曲はしたことがあるでしょうか。
 高いソフトに高いハードウェアが必要そうで敷居が高いと思ってないでしょうか。
 しかし、今どき多くの人がパソコン、スマホを持っている時代、
-Linuxで使えるDAWソフトである、Reaperをインストールしてみましょう。
+Linuxで使えるDAWソフトである、@<b>{Reaper}をインストールしてみましょう。
 
 公式リポジトリに用意されているため、pacmanでインストールができます。
 

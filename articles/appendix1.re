@@ -1,4 +1,4 @@
-== 付録　Linuxディストリビューションとは
+= Linuxディストリビューションとは
 
 Linuxという言葉には広義の意味と狭義の意味があります。
 Linuxディストリビューションの説明をするにはこの狭義の意味を理解している必要があります。
@@ -19,7 +19,7 @@ Linuxディストリビューションには様々な種類があり、それぞ
 
 1. Debian系
 
-//indepimage[Debian][Debianのロゴ]
+//indepimage[Debian][Debianのロゴ][scale=0.5]
 
  Debianというディストリビューションをベースに設計されたディストリビューション郡です。
  最も有名なディストリビューションの一つであるUbuntuはここに分類されます。
@@ -30,7 +30,7 @@ Linuxディストリビューションには様々な種類があり、それぞ
 
 2. RedHat系
 
-//indepimage[Red_Hat][Red Hatのロゴ]
+//indepimage[Red_Hat][Red Hatのロゴ][scale=0.5]
 
  レッドハット社が販売している業務向け有償ディストリビューション「Red Hat Enterprise Linux(以下RHEL)」と互換性を持つことを目標にしたディストリビューション郡です。
  パッケージマネージャはrpmを用います。RHELを使うにはサブスクリプション契約を行う必要があります。しかし、中小企業や研究室、個人用途のような
@@ -41,7 +41,7 @@ Linuxディストリビューションには様々な種類があり、それぞ
 
 3. Arch系
 
-//indepimage[Arch][Arch Linuxのロゴ]
+//indepimage[Arch][Arch Linuxのロゴ][scale=0.5]
 
  この本で注目したArch Linuxをベースに設計されたディストリビューション郡です。
  Arch Linuxは自由さこと魅力ですが、システムのメンテナンスや
@@ -50,7 +50,7 @@ Linuxディストリビューションには様々な種類があり、それぞ
 
 4. Slackware系
 
-//indepimage[Slackware][Slackwareのロゴ]
+//indepimage[Slackware][Slackwareのロゴ][scale=0.5]
 
 Slackwareは最古のLinuxディストリビューションで、非常にシンプルなシステム設計がなされています。
 Linuxを素に近い状態からカスタマイズできるので
@@ -59,7 +59,7 @@ Slackelやpuppy LinuxなどのディストリビューションはSlackwareを�
 
 5. Gentoo系
 
-//indepimage[gentoo][Gentooのロゴ]
+//indepimage[gentoo][Gentooのロゴ][scale=0.5]
 
 Gentoo Linuxというディストリビューションをベースに設計されたディストリビューションです。
 パッケージマネージャはPortageというものを用います。
@@ -72,7 +72,7 @@ Gentoo Linuxというディストリビューションをベースに設計さ�
 
 6.　独自系
 
-//indepimage[puppy][Puppy Linuxのロゴ]
+//indepimage[puppy][Puppy Linuxのロゴ][scale=0.5]
 
 Linuxカーネルに独自の改造を施したディストリビューションです。
 SolusやKaOSのように目指す目的に沿った独自のパッケージマネージャを備えているディストリビューションや
