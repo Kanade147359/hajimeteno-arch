@@ -133,7 +133,35 @@ Wi-Fi設定は@<b>{iwd}というソフトを用いて行います。
 [iwd]#
 //}
 
-対話型プロンプトから出て、ネットワーク疎通を確認しましょう。
+まず、ワイヤレスデバイス名がわからない場合はWi-Fiデバイス名を一覧表示してみ
+ましょう。
+
+//cmd{
+[iwd]# device list
+//}
+
+ここではデバイス名はwlan0として進めていきます。適宜デバイス名は自環境に置き
+換えてください。
+次にネットワークをスキャンします。
+
+//cmd{
+[iwd]# station wlan0 scan
+//}
+
+利用可能なネットワークを一覧表示します。自分がつなげたいWi-FiのSSIDがある
+かどうかを確認しましょう。
+
+//cmd{
+[iwd]# station wlan0 get-networks
+//}
+
+最後にネットワークに接続します。SSIDは各Wi-FiのSSIDに置き換えてください。
+
+//cmd{
+[iwd]# station wlan0 connect SSID
+//}
+
+完了したら対話型プロンプトから出て、ネットワーク疎通を確認しましょう。
 //cmd{ 
 [iwd]# exit
 # ping www.archlinux.jp
